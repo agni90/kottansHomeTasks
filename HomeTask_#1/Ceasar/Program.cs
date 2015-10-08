@@ -10,13 +10,7 @@ namespace Ceasar
     {
         static void Main(string[] args)
         {
-            //string text = "ava";
-            //int set = 5;
-            //CeasarCipher TestCeaser = new CeasarCipher(set);
-            //String EncryptCeasar = TestCeaser.Encrypt(text);
-            //string DecryptCeasar = TestCeaser.Decrypt(EncryptCeasar);
-            //Console.WriteLine(DecryptCeasar);
-            //Console.ReadKey();
+            
         }
     }
 
