@@ -28,7 +28,7 @@ namespace OOP.Shapes
 
 		public override double GetPerimeter()
 		{
-		    return 2 * Multiplier * Math.PI*_radius;
+		    return 2 * Multiplier * Math.PI * _radius;
 		}
 
 
@@ -39,9 +39,8 @@ namespace OOP.Shapes
 
 		public override void Move(int deltaX, int deltaY)
 		{
-            var coordX = deltaX + CoordX;
-            var coordY = deltaY + CoordY;
-
+		    CoordX = deltaX + CoordX;
+		    CoordY = deltaY + CoordY;
 		}
 	}
 }

@@ -29,13 +29,14 @@ namespace OOP
 
 	    private byte defaultMultiplier = 1;
         public byte Multiplier
-	    {
-	        get { return defaultMultiplier; }
+        {
+            get { return defaultMultiplier; }
             set { defaultMultiplier = value; }
-	    }
+            
+        }
 
 
-		public abstract double GetPerimeter();
+	    public abstract double GetPerimeter();
 		protected abstract double Area();
 		public abstract void Move(int deltaX, int deltaY);
 
