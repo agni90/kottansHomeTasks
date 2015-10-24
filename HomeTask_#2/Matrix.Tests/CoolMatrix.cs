@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Globalization;
+using System.Text;
 
 namespace Matrix.Tests
 {
@@ -14,7 +16,6 @@ namespace Matrix.Tests
             this.arr = arr;
             width = arr.GetLength(0);
             height = arr.GetLength(1);
-
         }
 
         public object Size { get; set; }
@@ -23,6 +24,54 @@ namespace Matrix.Tests
         public static implicit operator CoolMatrix(int[,] myArr)
         {
             return new CoolMatrix(myArr);
+        }
+
+        public override string ToString()
+        {
+            return ReturnArrayString(arr);
+        }
+
+        private string ReturnArrayString(int[,] myArr)
+        {
+            string myStr = "";
+            var builder = new StringBuilder();
+            for (int i = 0; i < width; i++)
+            {
+                builder.Append("[");
+                for (int j = 0; j < height; j++)
+                {
+                    //builder.AppendLine($"[{i}, {j}]");
+                    builder.Append(arr[i,j].ToString());
+                    if (j != height - 1) builder.Append(", ");
+                }
+                builder.Append("]");
+                if (i != width - 1) builder.AppendLine();
+            }
+            return builder.ToString();
+        }
+
+
+        public int this[int i, int j] => arr[i, j];
+
+        public static bool operator ==(CoolMatrix matrixA, CoolMatrix matrixB)
+        {
+            if (matrixA.width == matrixB.width && matrixA.height == matrixB.height)
+            {
+                for (int i = 0; i < matrixA.width; i++)
+                {
+                    for (int j = 0; j < matrixA.height; j++)
+                    {
+                       if (matrixA[i, j] != matrixB[i, j])  return false;
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+
+        public static bool operator !=(CoolMatrix matrixA, CoolMatrix matrixB)
+        {
+            return !(matrixA == matrixB);
         }
     }
 }
