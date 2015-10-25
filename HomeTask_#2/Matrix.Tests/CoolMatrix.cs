@@ -7,6 +7,9 @@ namespace Matrix.Tests
     public class CoolMatrix
     {
         private int[,] arr;
+        public Size Size {
+            get { return new Size(width, height);}
+}
         public int width; // first param
         public int height; // second param
 
@@ -18,7 +21,8 @@ namespace Matrix.Tests
             height = arr.GetLength(1);
         }
 
-        public object Size { get; set; }
+        //public object Size { get; set; }
+        
         public bool IsSquare => height == width;
 
         public static implicit operator CoolMatrix(int[,] myArr)
@@ -73,5 +77,62 @@ namespace Matrix.Tests
         {
             return !(matrixA == matrixB);
         }
+
+        public static CoolMatrix operator *(CoolMatrix matrixA, int myVar)
+        {
+            for (int i = 0; i < matrixA.width; i++)
+            {
+                for (int j = 0; j < matrixA.height; j++)
+                {
+                    matrixA.arr[i, j] = matrixA[i, j] * myVar;
+                }
+            }
+            return matrixA;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return this == (CoolMatrix) obj;
+        }
+
+        public static CoolMatrix operator +(CoolMatrix matrixA, CoolMatrix matrixB)
+        {
+            if (matrixA.width == matrixB.width && matrixA.height == matrixB.height)
+            {
+                for (int i = 0; i < matrixA.width; i++)
+                {
+                    for (int j = 0; j < matrixA.height; j++)
+                    {
+                        matrixA.arr[i, j] = matrixA[i, j] + matrixB[i, j];
+                    }
+                }
+            }
+            else
+            {
+                throw new ArgumentException();
+            }
+            return matrixA;
+        }
+
+
+        public CoolMatrix Transpose(CoolMatrix matrixA)
+        {
+            int[, ] arrResult = new int[matrixA.height, matrixA.width ];
+            for (int i = 0; i < matrixA.width; i++)
+            {
+                for (int j = 0; j < matrixA.height; j++)
+                {
+                    arrResult[j, i] = matrixA.arr[i, j];
+                }
+            }
+            return arrResult;
+        }
+
+        public CoolMatrix Transpose()
+        {
+           return Transpose(arr);
+        }
+
+
     }
 }

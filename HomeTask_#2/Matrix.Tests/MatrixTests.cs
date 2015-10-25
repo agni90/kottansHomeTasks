@@ -5,16 +5,16 @@ namespace Matrix.Tests
 {
     public class MatrixTests
     {
-        //[Test]
-        //public void Constructor_WhenPassedArray_ReturnsCorrectSize()
-        //{
-        //    var arr = new int[3, 2];
-        //    var matrix = new CoolMatrix(arr);
+        [Test]
+        public void Constructor_WhenPassedArray_ReturnsCorrectSize()
+        {
+            var arr = new int[3, 2];
+            var matrix = new CoolMatrix(arr);
 
-        //    var expectedSize = new Size(width: 3, height: 2);
+            var expectedSize = new Size(width: 3, height: 2);
 
-        //    Assert.AreEqual(expectedSize, matrix.Size);
-        //}
+            Assert.AreEqual(expectedSize, matrix.Size);
+        }
 
         [Test]
         public void Constructor_WhenPassedNull_ThrowsArgumentNullException()
@@ -158,67 +158,83 @@ namespace Matrix.Tests
             Assert.AreEqual(expected, result);
         }
 
-        //[Test]
-        //public void AdditionOperator_AmongMatricies_AddsCorrespondingEntries()
-        //{
-        //    CoolMatrix matrixA = new[,]
-        //    {
-        //        { 1, 2 },
-        //        { 3, 4 }
-        //    };
+        [Test]
+        public void AdditionOperator_AmongMatricies_AddsCorrespondingEntries()
+        {
+            CoolMatrix matrixA = new[,]
+            {
+                { 1, 2 },
+                { 3, 4 }
+            };
 
-        //    CoolMatrix matrixB = new[,]
-        //    {
-        //        { 5, 6 },
-        //        { 7, 8 }
-        //    };
+            CoolMatrix matrixB = new[,]
+            {
+                { 5, 6 },
+                { 7, 8 }
+            };
 
-        //    CoolMatrix expected = new[,]
-        //    {
-        //        { 6, 8 },
-        //        { 10, 12 }
-        //    };
+            CoolMatrix expected = new[,]
+            {
+                { 6, 8 },
+                { 10, 12 }
+            };
 
-        //    var result = matrixA + matrixB;
+            var result = matrixA + matrixB;
 
-        //    Assert.AreEqual(expected, result);
-        //}
+            Assert.AreEqual(expected, result);
+        }
 
-        //[Test]
-        //public void AddOperator_WithMatrixesOfDifferentSize_ThrowsArgumentException()
-        //{
-        //    CoolMatrix matrixA = new[,]
-        //    {
-        //        { 1, 2 },
-        //        { 3, 4 }
-        //    };
+        [Test]
+        public void AddOperator_WithMatrixesOfDifferentSize_ThrowsArgumentException()
+        {
+            CoolMatrix matrixA = new[,]
+            {
+                { 1, 2 },
+                { 3, 4 }
+            };
 
-        //    CoolMatrix matrixB = new[,]
-        //    {
-        //        { 5, 6 }
-        //    };
+            CoolMatrix matrixB = new[,]
+            {
+                { 5, 6 }
+            };
 
-        //    Assert.Throws<ArgumentException>(() =>
-        //    {
-        //        var result = matrixA + matrixB;
-        //    });
-        //}
+            Assert.Throws<ArgumentException>(() =>
+            {
+                var result = matrixA + matrixB;
+            });
+        }
 
-        //[Test]
-        //public void Transpose_Always_TransposesMatrix()
-        //{
-        //    CoolMatrix matrix = new[,]
-        //    {
-        //        { 1, 2 }
-        //    };
+        [Test]
+        public void Transpose_Always_TransposesMatrix()
+        {
+            CoolMatrix matrix = new[,]
+            {
+                { 1, 2 }
+            };
 
-        //    CoolMatrix expected = new[,]
-        //    {
-        //        { 1 },
-        //        { 2 }
-        //    };
+            CoolMatrix expected = new[,]
+            {
+                { 1 },
+                { 2 }
+            };
+            Assert.AreEqual(expected, matrix.Transpose());
+        }
 
-        //    Assert.AreEqual(expected, matrix.Transpose());
-        //}
+        [Test]
+        public void Transpose_Always_Transposes2DMatrix()
+        {
+            CoolMatrix matrix = new[,]
+            {
+                { 1, 2 },
+                { 3, 4 }
+            };
+
+            CoolMatrix expected = new[,]
+            {
+                { 1 , 3},
+                { 2 , 4}
+            };
+            Assert.AreEqual(expected, matrix.Transpose());
+        }
     }
 }

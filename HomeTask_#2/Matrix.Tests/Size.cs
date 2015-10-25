@@ -28,5 +28,9 @@ namespace Matrix.Tests
         {
             return sizeA.height != sizeB.height && sizeA.width != sizeB.width;
         }
+        public override bool Equals(object obj)
+        {
+            return this == (Size)obj;
+        }
     }
 }
