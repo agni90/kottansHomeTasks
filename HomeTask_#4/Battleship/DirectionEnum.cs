@@ -1,4 +1,4 @@
-﻿namespace Battleship.Tests
+﻿namespace Battleship
 {
     public enum Direction
     {

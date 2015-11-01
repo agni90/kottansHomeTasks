@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using Battleship;
 
 namespace Battleship.Tests
 {

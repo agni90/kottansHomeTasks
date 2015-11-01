@@ -63,8 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BoardShould.cs" />
-    <Compile Include="DirectionEnum.cs" />
-    <Compile Include="PatrolBoat.cs" />
+    <Compile Include="NotAShipException.cs" />
     <Compile Include="ShipEqualsShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShipFitInSquareShould.cs" />
@@ -77,6 +76,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Battleship\Battleship.csproj">
+      <Project>{b47db0b9-60b6-4945-8d31-64137661fc80}</Project>
+      <Name>Battleship</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

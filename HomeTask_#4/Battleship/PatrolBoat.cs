@@ -2,7 +2,7 @@
 using System.Runtime.Remoting.Messaging;
 using System.Security.Cryptography.X509Certificates;
 
-namespace Battleship.Tests
+namespace Battleship
 {
     class PatrolBoat
     {
@@ -28,7 +28,7 @@ namespace Battleship.Tests
         public static bool operator ==(PatrolBoat shipA, PatrolBoat shipB)
         {
             if (shipA.GetType() != shipB.GetType()) return false;
-            if ((shipA.x == shipB.x)&&(shipA.y == shipB.y)) 
+            if ((shipA.x == shipB.x)&&(shipA.y == shipB.y) ) 
             {
                 return true;
             }
@@ -66,11 +66,11 @@ namespace Battleship.Tests
         }
         public static bool operator !=(PatrolBoat shipA, Cruiser shipB)
         {
-            return !(shipA.x == shipB.x);
+            return !(shipA == shipB) ;
         }
         public override bool Equals(object obj)
         {
-            return this == (PatrolBoat)obj;
+            return this == (Cruiser)obj;
         }
     }
 }

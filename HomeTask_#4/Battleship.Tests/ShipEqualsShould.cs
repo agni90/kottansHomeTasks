@@ -1,6 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 using NUnit.Core;
+using Battleship;
 
 
 namespace Battleship.Tests
