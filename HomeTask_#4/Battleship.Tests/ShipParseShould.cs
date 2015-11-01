@@ -32,14 +32,14 @@ namespace Battleship.Tests
             });
         }
 
-        //    [TestCase("A1", typeof(PatrolBoat))]
-        //    [TestCase("A1x2", typeof(Cruiser))]
-        //    [TestCase("A1x3", typeof(Submarine))]
-        //    [TestCase("A1x4", typeof(AircraftCarrier))]
-        //    public void CreateCorrectTypeOfShipBasedOnItsSize(string ship, Type expectedType)
-        //    {
-        //        Assert.IsInstanceOf(expectedType, Ship.Parse(ship));
-        //    }
+        [TestCase("A1", typeof(PatrolBoat))]
+        //[TestCase("A1x2", typeof(Cruiser))]
+        //[TestCase("A1x3", typeof(Submarine))]
+        //[TestCase("A1x4", typeof(AircraftCarrier))]
+        public void CreateCorrectTypeOfShipBasedOnItsSize(string ship, Type expectedType)
+        {
+            Assert.IsInstanceOf(expectedType, Ship.Parse(ship));
+        }
     }
 
 }

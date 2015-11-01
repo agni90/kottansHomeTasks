@@ -63,7 +63,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BoardShould.cs" />
-    <Compile Include="NotAShipException.cs" />
     <Compile Include="ShipEqualsShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShipFitInSquareShould.cs" />
