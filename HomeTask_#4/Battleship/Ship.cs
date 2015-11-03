@@ -126,6 +126,22 @@ namespace Battleship
             }
         }
 
+        public static bool TryParse(string notation, out Ship ship)
+        {
+            try
+            {
+                ship = Parse(notation);
+                return true;
+            }
+            catch (NotAShipException)
+            {
+                ship = null;
+                return false;
+            }
+
+        }
+
+
         private static uint ParseYElementFromNotation(string notation)
         {
             char[] toCharArr = notation.ToCharArray(0, notation.Length);
@@ -161,6 +177,23 @@ namespace Battleship
         public override bool Equals(object obj)
         {
             return (Ship)this == obj as Ship;
+        }
+
+        public bool FitsInSquare(byte squareHeight, byte squareWidth)
+        {
+            if (Direction == Direction.Vertiacal)
+            {
+                return X <= squareWidth && (Y + (Length - 1)) <= squareHeight;
+            }
+            else
+            {
+                return (X + (Length - 1)) <= squareWidth && Y <= squareHeight;
+            }
+        }
+
+        public bool OverlapsWith(Ship pos2)
+        {
+            return X == pos2.X && Y == pos2.Y || X+Length-1 == pos2.X + pos2.Length -1  && Y == pos2.Y;
         }
     }
 }

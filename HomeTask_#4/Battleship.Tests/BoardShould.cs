@@ -4,30 +4,30 @@ using Battleship;
 
 namespace Battleship.Tests
 {
-    //Types of boats: 
+    // Types of boats: 
     // single-funnel : PatrolBoat
     // two-funnel : Cruiser
     // three-funnel : Battleship
     // four-funnel : Aircraft carrier
     public class BoardShould
     {
-        //private Board board;
+        private Board board;
 
-        //[SetUp]
-        //public void Setup()
-        //{
-        //    board = new Board();
-        //}
+        [SetUp]
+        public void Setup()
+        {
+            board = new Board();
+        }
 
-        //[Test]
-        //public void AcceptSingleFunnelShip()
-        //{
-        //    board.Add(new PatrolBoat(1, 1));
+        [Test]
+        public void AcceptSingleFunnelShip()
+        {
+            board.Add(new PatrolBoat(1, 1));
 
-        //    var shipsOnBoard = board.GetAll();
+            var shipsOnBoard = board.GetAll();
 
-        //    Assert.AreEqual(1, shipsOnBoard.Count);
-        //}
+            Assert.AreEqual(1, shipsOnBoard.Count);
+        }
 
         //[Test]
         //public void ThrowShipsOverlapException_WhenShipsOverlap()
