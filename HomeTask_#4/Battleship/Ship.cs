@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using System.Threading;
 
 namespace Battleship
 {
@@ -122,7 +123,7 @@ namespace Battleship
                 case 4:
                     return new AircraftCarrier(shipResult);
                 default:
-                    throw  new Exception("should neber be here,alredy checked on lenth");
+                    throw  new Exception("should never be here, alredy checked on length");
             }
         }
 
@@ -193,7 +194,22 @@ namespace Battleship
 
         public bool OverlapsWith(Ship pos2)
         {
-            return X == pos2.X && Y == pos2.Y || X+Length-1 == pos2.X + pos2.Length -1  && Y == pos2.Y;
+            bool isOverlapped = false;
+            //check heads
+            if (X == pos2.X && Y == pos2.Y)
+                isOverlapped = true;
+            //check my head and his tail
+            if (pos2.Direction == Direction.Horizontal && X == pos2.X + pos2.Length -1 && Y == pos2.Y)
+                isOverlapped = true;
+            if (pos2.Direction == Direction.Vertiacal && Y == pos2.Y + pos2.Length - 1 && X == pos2.X)
+                isOverlapped = true;
+            //check my tail and his head
+            if (Direction == Direction.Horizontal && X + Length -1 == pos2.X && Y == pos2.Y)
+                isOverlapped = true;
+            if (Direction == Direction.Vertiacal && Y + Length - 1 == pos2.Y && X == pos2.X)
+                isOverlapped = true;
+
+            return isOverlapped;
         }
     }
 }
